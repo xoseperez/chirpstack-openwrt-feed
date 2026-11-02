@@ -73,8 +73,8 @@ endef
 
 define Build/Compile
 	(cd $(PKG_BUILD_DIR)/ui && \
-		yarn install && \
-		yarn add @chirpstack/chirpstack-api-grpc-web@$(PKG_VERSION) && \
+		yarn install --ignore-engines && \
+		yarn add --ignore-engines @chirpstack/chirpstack-api-grpc-web@4.19.0 && \
 		yarn build \
 	)
 	$(call Build/Compile/Cargo,chirpstack,--no-default-features --features sqlite)
